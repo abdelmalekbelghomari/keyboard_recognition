@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #BCDDFE; 
+    color: #333; 
+    text-align: center;
+}
+
+header {
+    background-color: #007acc; 
+    padding: 20px;
+    color: #fff; 
+}
+
+h1 {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+h1 p {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+#text {
+    border: 1px solid #8EB6D8;
+    margin:10px;
+    border-radius: 10px;
+}
+
+#text {
+    height: 150px;
+    background-color : white;
+}
+
+#inputText {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: left;
+    font-size: 1.2em;
+}
+
+
+
+
+
+#inputBar {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+
+#textBar {
+    flex: 0.4;
+    border-radius: 5px;
+    border-color: #70869B;
+    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+#tempsRestant {
+    width: 60px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #3C4D5C;
+    color: white;
+}
+
+#resetButton {
+    background-color: #428BCA;
+    margin-left: 10px;
+    padding: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+#imageReset {
+    border-radius: 5px;
+    height : 40px;
+    width: 40px;
+    border-color: #3A83BF;
+}
