@@ -86,6 +86,12 @@ print(y_test)
 # Écriture des prédictions dans un fichier texte
 with open(args.predictions_output, 'w') as file:
     for prediction in predictions:
+
+
+
+
+
+        
         file.write(f"{prediction}")
     file.write(f"\n")
 
