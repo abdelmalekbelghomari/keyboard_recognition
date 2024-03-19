@@ -24,13 +24,35 @@ def correct_output_with_dictionary(model_output, dictionary):
     """
     return [find_closest_word(word, dictionary) for word in model_output]
 
+def load_dictionary(language):
+    """
+    Charge un dictionnaire anglais ou français en fonction de la langue spécifiée.
+    """
+    if language == 'english':
+        return set(words.words())
+    elif language == 'french':
+        with open('french_words.txt', 'r') as file:
+            return set(file.read().split())
+    else:
+        raise ValueError("Langue non supportée.")
 
-parser = argparse.ArgumentParser(description="Un script d'exemple avec option de correction par distance de Levenshtein.")
+parser = argparse.ArgumentParser(description="Script pour prédiction avec option de correction par distance de Levenshtein.")
 parser.add_argument('--use_levenshtein', action='store_true', help='Utiliser la distance de Levenshtein pour la correction.')
+parser.add_argument('--language', choices=['english', 'french'], help='Choisir la langue pour la correction par distance de Levenshtein.')
+parser.add_argument('--input_csv', required=True, help='Chemin vers le fichier CSV d\'entrée contenant les données.')
+parser.add_argument('--predictions_output', required=True, help='Chemin de sortie pour enregistrer les prédictions.')
+
+
 args = parser.parse_args()
 
+if args.use_levenshtein:
+    if not args.language:
+        parser.error("--use_levenshtein nécessite --language avec 'english' ou 'french'.")
+    dictionary = load_dictionary(args.language)
+else:
+    dictionary = None
 
-df = pd.read_csv('output2.csv')
+df = pd.read_csv(args.input_csv)
 
 y = df.iloc[:, 0].values
 X = df.iloc[:, 1:].values
@@ -60,6 +82,14 @@ print(predictions)
 
 print("\nValeurs réelles de l'ensemble de test:")
 print(y_test)
+
+# Écriture des prédictions dans un fichier texte
+with open(args.predictions_output, 'w') as file:
+    for prediction in predictions:
+        file.write(f"{prediction}")
+    file.write(f"\n")
+
+print(f"Prédictions enregistrées dans : {args.predictions_output}")
 
 # Enregistrement du modèle
 model_filename = '../models/mlp_model.joblib'
