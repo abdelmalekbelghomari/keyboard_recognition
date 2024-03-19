@@ -3,6 +3,32 @@ from sklearn.preprocessing import StandardScaler
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from joblib import load, dump
+import nltk
+import argparse
+from nltk.corpus import words
+from Levenshtein import distance as levenshtein_distance
+
+# nltk.download('words') only one time
+english_words = set(words.words())
+
+def find_closest_word(input_word, dictionary):
+    """
+    Trouve le mot le plus proche dans le dictionnaire en utilisant la distance de Levenshtein.
+    """
+    closest_word = min(dictionary, key=lambda word: levenshtein_distance(word, input_word))
+    return closest_word
+
+def correct_output_with_dictionary(model_output, dictionary):
+    """
+    Corrige la sortie du modèle en utilisant la distance de Levenshtein pour chaque mot prédit.
+    """
+    return [find_closest_word(word, dictionary) for word in model_output]
+
+
+parser = argparse.ArgumentParser(description="Un script d'exemple avec option de correction par distance de Levenshtein.")
+parser.add_argument('--use_levenshtein', action='store_true', help='Utiliser la distance de Levenshtein pour la correction.')
+args = parser.parse_args()
+
 
 df = pd.read_csv('output2.csv')
 
@@ -24,6 +50,9 @@ print("Score de précision sur l'ensemble de test:", model.score(X_test_scaled, 
 
 # Prédictions du modèle sur l'ensemble de test
 predictions = model.predict(X_test_scaled)
+
+if args.use_levenshtein:
+    predictions = correct_output_with_dictionary(predictions, english_words)
 
 # Affichage des prédictions et des valeurs réelles
 print("\nPrédictions du modèle sur l'ensemble de test:")
