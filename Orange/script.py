@@ -57,7 +57,7 @@ df = pd.read_csv(args.input_csv)
 y = df.iloc[:, 0].values
 X = df.iloc[:, 1:].values
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=1)
 
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
@@ -85,14 +85,7 @@ print(y_test)
 
 # Écriture des prédictions dans un fichier texte
 with open(args.predictions_output, 'w') as file:
-    for prediction in predictions:
-
-
-
-
-
-        
-        file.write(f"{prediction}")
+    file.write(f"{model.score(X_test_scaled, y_test)}")
     file.write(f"\n")
 
 print(f"Prédictions enregistrées dans : {args.predictions_output}")
