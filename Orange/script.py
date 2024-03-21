@@ -41,6 +41,7 @@ parser.add_argument('--use_levenshtein', action='store_true', help='Utiliser la 
 parser.add_argument('--language', choices=['english', 'french'], help='Choisir la langue pour la correction par distance de Levenshtein.')
 parser.add_argument('--input_csv', required=True, help='Chemin vers le fichier CSV d\'entrée contenant les données.')
 parser.add_argument('--predictions_output', required=True, help='Chemin de sortie pour enregistrer les prédictions.')
+parser.add_argument('--model_name', required=True, help='Nom du modèle à utiliser pour les prédictions.')
 
 
 args = parser.parse_args()
@@ -91,7 +92,7 @@ with open(args.predictions_output, 'w') as file:
 print(f"Prédictions enregistrées dans : {args.predictions_output}")
 
 # Enregistrement du modèle
-model_filename = '../models/mlp_model.joblib'
+model_filename = f"../models/{args.model_name}.joblib"
 dump(model, model_filename)
 print(f"Modèle enregistré sous le nom : {model_filename}")
 

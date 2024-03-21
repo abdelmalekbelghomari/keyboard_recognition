@@ -60,8 +60,8 @@ def main():
     parser.add_argument('--input_dir', type=str, required=True, help='Directory containing .wav files.')
     parser.add_argument('--label', type=str, required=True, help='Label for the first column of the CSV.')
     parser.add_argument('--output_csv', type=str, required=True, help='Path to the output CSV file.')
-    parser.add_argument('--n_mfcc', type=int, default=10, help='Number of MFCC features to extract for each segment.')
-    parser.add_argument('--n_segments', type=int, default=10, help='Number of segments to divide each audio file into.')
+    parser.add_argument('--n_mfcc', type=int, default=20, help='Number of MFCC features to extract for each segment.')
+    parser.add_argument('--n_segments', type=int, default=20, help='Number of segments to divide each audio file into.')
     
     args = parser.parse_args()
     
