@@ -34,6 +34,6 @@ def detect_key_strokes(input_audio_path, output_dir, frame_length=2048, hop_leng
             print(f'Segment saved: {segment_path}')
 
 if __name__ == "__main__":
-    input_audio_path = "lettres/cedric/audio/d_cedric.wav"
+    input_audio_path = "lettres/cedric/audio/e_cedric.wav"
     output_dir = "segmented_audios"
     detect_key_strokes(input_audio_path, output_dir)
