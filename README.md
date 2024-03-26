@@ -17,7 +17,7 @@ In the realm of digital security, knowing who is using a computer and what they 
 To get started with the Audio Forensic Recognition System, please follow the instructions below:
 
 1. Clone the repository to your local machine.
-2. Install the required dependencies listed in `requirements.txt`. (Not available yet)
+2. Install the required dependencies listed in `requirements.txt`. (Not complete yet)
 3. Its ready! You just have to run the `demo.php` file. 
 
 
