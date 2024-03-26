@@ -1,37 +1,28 @@
-## Notes to understand TensorFlow : 
-  - Sequential model is created, which allows you to stack layers linearly
-```
-model = Sequential() 
-```
-- A fully connected layer with 8 neurons. input_dim=2 indicates that the input features have 2 dimensions. relu (Rectified Linear Unit) is the activation function used.
-```
-model.add(Dense(8, input_dim=2, activation='relu')) 
-```
-- A dropout layer that randomly sets 20% of the input units to 0 at each update during training, which helps prevent overfitting.
-```
-model.add(Dropout(0.2))
-```
--The final layer is a dense layer with 1 neuron, using the sigmoid activation function. This is typical for binary classification, as sigmoid outputs a value between 0 and 1, representing the probability of belonging to one of the classes.
-```
-model.add(Dense(1, activation='sigmoid'))
-```
-- The model is compiled with the adam optimizer, a popular choice for deep learning tasks.
-The loss function used is binary_crossentropy, appropriate for binary classification.
-The metric for performance evaluation is accuracy.
-```
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-```
-- The model is trained on the input data X and labels y for 1000 epochs. An epoch is a complete pass through the entire training dataset.
-```
-model.fit(X, y, epochs=1000)
-```
-- The model's performance is evaluated using the same dataset. It prints out the accuracy of the model.
-```
-model.fit(X, y, epochs=1000)
-```
-- Finally, the model makes predictions on the input data X. The output here is the model's predicted probability for each sample belonging to the positive class (label 1).
-```
-model.fit(X, y, epochs=1000)
-```
-## Creating a simple model that recognizes sounds
+# Audio Forensic Recognition System :mag_right: :keyboard:
+
+Welcome to the Audio Forensic Recognition System repository! Our project is at the cutting edge of security and forensic technology, designed to identify individuals by the unique sound of their keyboard typing patterns and to decipher the keystrokes for enhanced computer security and forensic analysis.
+
+## Overview :page_with_curl:
+
+In the realm of digital security, knowing who is using a computer and what they are typing can be invaluable. Our system employs advanced neural network models to analyze audio data, discern typing patterns, and associate them with specific users. Moreover, our technology can recognize and transcribe the keystrokes, which has a broad range of applications from securing sensitive data to aiding in forensic investigations.
+
+## Features :sparkles:
+
+- **Person Identification**: Utilizing the subtle but unique sound profiles produced by individuals when typing, our system can determine who is using a keyboard with a high degree of accuracy.
+- **Keystroke Deciphering**: Our system goes beyond mere identification; it can transcribe the keys being pressed based on the audio input of the typing, which is crucial for forensic analysis and security.
+- **Neural Network Models**: We have implemented several machine learning models, optimized with diverse datasets,.
+
+## Getting Started :rocket:
+
+To get started with the Audio Forensic Recognition System, please follow the instructions below:
+
+1. Clone the repository to your local machine.
+2. Install the required dependencies listed in `requirements.txt`. (Not available yet)
+3. Its ready! You just have to run the `demo.php` file. 
+
+
+We're excited to see how our Audio Forensic Recognition System can contribute to the safety and security of digital information. For any queries or support, please contact us through the Issues section of this repository.
+
+Happy investigating! :detective:
+
 
