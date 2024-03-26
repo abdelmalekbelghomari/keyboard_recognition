@@ -1,1 +1,15 @@
+# Python Dependencies
+librosa==0.10.1
+tensorflow==2.16.1
+numpy==1.26.4
+pandas==2.2.1
+scipy==1.12.0
+matplotlib==3.8.3
+
+# System Dependencies
+ffmpeg==6.1.1  # Replace with the version compatible with your system.
+
+# Note:
+# Ensure you have a local PHP server running for the development environment.
+# The web interface requires PHP until it is fully deployed on the internet.
 
