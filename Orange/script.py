@@ -42,6 +42,7 @@ parser.add_argument('--language', choices=['english', 'french'], help='Choisir l
 parser.add_argument('--input_csv', required=True, help='Chemin vers le fichier CSV d\'entrée contenant les données.')
 parser.add_argument('--predictions_output', required=True, help='Chemin de sortie pour enregistrer les prédictions.')
 parser.add_argument('--model_name', required=True, help='Nom du modèle à utiliser pour les prédictions.')
+parser.add_argument('--scaler_name', required=True, help='Nom du scaler à utiliser pour les prédictions.')
 
 
 args = parser.parse_args()
@@ -97,6 +98,6 @@ dump(model, model_filename)
 print(f"Modèle enregistré sous le nom : {model_filename}")
 
 # Enregistrement du scaler
-scaler_filename = '../scalers/scaler.joblib'
+scaler_filename = f"../scalers/{args.scaler_name}.joblib"
 dump(scaler, scaler_filename)
 print(f"Scaler enregistré sous le nom : {scaler_filename}")
