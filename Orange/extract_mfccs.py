@@ -4,7 +4,7 @@ import librosa
 import argparse
 import numpy as np
 
-def extract_mfccs_from_audio(y, sr, n_mfcc, n_segments=10):
+def extract_mfccs_from_audio(y, sr, n_mfcc, n_segments=20):
     """
     Extract MFCCs from an audio file and ensure that the MFCCs cover the entire audio evenly,
     divided into n_segments.
@@ -25,7 +25,7 @@ def extract_mfccs_from_audio(y, sr, n_mfcc, n_segments=10):
     
     return mfccs_vectors
 
-def extract_mfccs_to_csv(input_dir, label, output_csv, n_mfcc, n_segments=10):
+def extract_mfccs_to_csv(input_dir, label, output_csv, n_mfcc, n_segments=20):
     """
     Extract MFCCs from audio files by adjusting the segment length based on the audio file's total length,
     aiming to produce a fixed number of features (MFCCs) for each file.
