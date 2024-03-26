@@ -4,9 +4,9 @@ import os
 def execute_commands_and_delete_csv():
     # Définition de la première commande pour extraire les MFCCs
     command1 = [
-        "python3", "extract_mfccs.py",
-        "--input_dir", "../phrases/cedric_phrase/",
-        "--label", "cedric",
+        "python3", "extract_mfccs_file.py",
+        "--audio_file", "../phrases/cedric_phrase/1_cedric.wav",
+        "--label", "?",
         "--output_csv", "test.csv"
     ]
     
