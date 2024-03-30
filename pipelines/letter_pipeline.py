@@ -4,19 +4,18 @@ import os
 def execute_workflow():
     # Définition de la première commande pour extraire les MFCC et écrire dans test.csv
     command1 = [
-        "python3", "extract_MFCC_coefv2.py",
-        "--audio_file", "../lettres/cedric/audio/a_cedric.wav",
-        "--csv_file", "test.csv",
-        "--label", "a"
+        "python3", "../audio_processing/evaluation_audio_processing.py",
+        "--audio_folder", "../lettres/cedric/audio/",
+        "--output_csv", "../test1.csv",
     ]
     
     # Définition de la deuxième commande pour exécuter le modèle entraîné et enregistrer les prédictions dans results.txt
     command2 = [
-        "python3", "trained_model.py",
-        "--model", "../models/first_letter_recognizer.joblib",
-        "--scaler", "../scalers/scaler.joblib",
-        "--input_csv", "test.csv",
-        "--predictions_output", "results.txt"
+        "python3", "../evaluation/trained_model.py",
+        "--model", "../models/third_letter_recognizer.joblib",
+        "--scaler", "../scalers/20_feature_scaler.joblib",
+        "--input_csv", "../test1.csv",
+        "--predictions_output", "../results.txt"
     ]
 
     try:
@@ -35,7 +34,7 @@ def execute_workflow():
         return
 
     # Suppression du fichier CSV
-    csv_file = "test.csv"
+    csv_file = "../test1.csv"
     if os.path.exists(csv_file):
         os.remove(csv_file)
         print(f"Le fichier {csv_file} a été supprimé avec succès.")

@@ -5,9 +5,9 @@ def execute_commands_and_delete_csv():
     # Définition de la première commande pour extraire les MFCCs
     command1 = [
         "python3", "extract_mfccs_file.py",
-        "--audio_file", "../phrases/cedric_phrase/1_cedric.wav",
+        "--audio_folder", "../phrases/cedric/audio",
         "--label", "?",
-        "--output_csv", "test.csv"
+        "--output_csv", "test2.csv"
     ]
     
     # Définition de la deuxième commande pour exécuter le modèle entraîné
@@ -15,7 +15,7 @@ def execute_commands_and_delete_csv():
         "python3", "trained_model.py",
         "--model", "../models/person_recognizer.joblib",
         "--scaler", "../scalers/scaler.joblib",
-        "--input_csv", "test.csv",
+        "--input_csv", "test2.csv",
         "--predictions_output", "results.txt"
     ]
 
@@ -35,7 +35,7 @@ def execute_commands_and_delete_csv():
         return
 
     # Suppression du fichier CSV
-    csv_file = "test.csv"
+    csv_file = "../test2.csv"
     if os.path.exists(csv_file):
         os.remove(csv_file)
         print(f"Le fichier {csv_file} a été supprimé avec succès.")
