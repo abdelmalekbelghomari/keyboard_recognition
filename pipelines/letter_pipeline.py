@@ -4,8 +4,8 @@ import os
 def execute_workflow():
     # Définition de la première commande pour extraire les MFCC et écrire dans test.csv
     command1 = [
-        "python3", "../audio_processing/evaluation_audio_processing.py",
-        "--audio_folder", "../lettres/cedric/audio/",
+        "python3", "../audio_processing/character_recognition/evaluation_audio_processing.py",
+        "--audio_folder", "../letters_audios/cedric/audio/",
         "--output_csv", "../test1.csv",
     ]
     
@@ -15,7 +15,7 @@ def execute_workflow():
         "--model", "../models/third_letter_recognizer.joblib",
         "--scaler", "../scalers/20_feature_scaler.joblib",
         "--input_csv", "../test1.csv",
-        "--predictions_output", "../results.txt"
+        "--predictions_output", "../results2.txt"
     ]
 
     try:

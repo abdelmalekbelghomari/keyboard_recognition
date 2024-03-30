@@ -4,19 +4,18 @@ import os
 def execute_commands_and_delete_csv():
     # Définition de la première commande pour extraire les MFCCs
     command1 = [
-        "python3", "extract_mfccs_file.py",
-        "--audio_folder", "../phrases/cedric/audio",
-        "--label", "?",
-        "--output_csv", "test2.csv"
+        "python3", "../audio_processing/person_recognition/evaluation_mfcc_extractor.py",
+        "--audio_file", "../sentences_audios/haykel_sentences/1_haykel.wav",
+        "--output_csv", "../test2.csv",
     ]
     
     # Définition de la deuxième commande pour exécuter le modèle entraîné
     command2 = [
-        "python3", "trained_model.py",
-        "--model", "../models/person_recognizer.joblib",
-        "--scaler", "../scalers/scaler.joblib",
-        "--input_csv", "test2.csv",
-        "--predictions_output", "results.txt"
+        "python3", "../evaluation/trained_model.py",
+        "--model", "../models/second_person_recognizer.joblib",
+        "--scaler", "../scalers/400_features_scaler.joblib",
+        "--input_csv", "../test2.csv",
+        "--predictions_output", "../results1.txt"
     ]
 
     try:
@@ -24,6 +23,12 @@ def execute_commands_and_delete_csv():
         print("Exécution de la première commande...")
         subprocess.run(command1, check=True)
         print("Première commande exécutée avec succès.")
+        csv_file = "../test2.csv"
+        if os.path.exists(csv_file):
+            print(f"Le fichier {csv_file} a été créé avec succès.")
+        else:
+            print(f"Le fichier {csv_file} n'a pas été créé.")
+            return
         
         # Exécution de la deuxième commande
         print("Exécution de la deuxième commande...")
