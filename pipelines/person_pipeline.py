@@ -15,7 +15,7 @@ def execute_commands_and_delete_csv():
         "--model", "../models/second_person_recognizer.joblib",
         "--scaler", "../scalers/400_features_scaler.joblib",
         "--input_csv", "../test2.csv",
-        "--predictions_output", "../results1.txt"
+        "--predictions_output", "../models_results/person_results.txt"
     ]
 
     try:

@@ -15,7 +15,7 @@ def execute_workflow():
         "--model", "../models/third_letter_recognizer.joblib",
         "--scaler", "../scalers/20_feature_scaler.joblib",
         "--input_csv", "../test1.csv",
-        "--predictions_output", "../results2.txt"
+        "--predictions_output", "../models_results/letter_results.txt"
     ]
 
     try:
