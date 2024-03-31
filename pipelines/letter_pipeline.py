@@ -5,7 +5,7 @@ def execute_workflow():
     # Définition de la première commande pour extraire les MFCC et écrire dans test.csv
     command1 = [
         "python3", "../audio_processing/character_recognition/evaluation_audio_processing.py",
-        "--audio_folder", "../letters_audios/cedric/audio/",
+        "--audio_file", "../letters_audios/cedric/audio/b_cedric.wav",
         "--output_csv", "../test1.csv",
     ]
     

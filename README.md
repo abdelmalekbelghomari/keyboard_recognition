@@ -23,6 +23,21 @@ To get started with the Audio Forensic Recognition System, please follow the ins
 
 We're excited to see how our Audio Forensic Recognition System can contribute to the safety and security of digital information. For any queries or support, please contact us through the Issues section of this repository.
 
+## Functionalities
+
+* In this repository 
+
+## Content 
+
+Our repository is composed of different folders :
+
+* audio_processing folder is for creating the mfccs from one or different audios based on the protocol.
+* training folder is for training a model
+* evaluation is for evaluating a trained model
+* 
+
+
+
 Happy investigating! :detective:
 
 
