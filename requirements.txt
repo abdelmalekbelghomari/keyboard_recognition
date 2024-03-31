@@ -12,4 +12,3 @@ ffmpeg==6.1.1  # Replace with the version compatible with your system.
 # Note:
 # Ensure you have a local PHP server running for the development environment.
 # The web interface requires PHP until it is fully deployed on the internet.
-
