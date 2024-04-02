@@ -23,9 +23,62 @@ To get started with the Audio Forensic Recognition System, please follow the ins
 
 We're excited to see how our Audio Forensic Recognition System can contribute to the safety and security of digital information. For any queries or support, please contact us through the Issues section of this repository.
 
-## Functionalities
+## Overview of Functionality
 
-* In this repository 
+This repository is designed to support two main functionalities: **Letter-by-Letter Recognition** and **Person Recognition** from audio files. Each functionality has a tailored workflow to best suit the model's needs.
+
+### Letter-by-Letter Recognition
+
+For models aimed at recognizing letters or characters from audio:
+
+1. **Splitting Audio Files**: Key to preparing data for letter-by-letter recognition, the `split()` function divides a `.wav` file into segments corresponding to individual keystroke sounds. This step is crucial for isolating the sounds of interest.
+   
+2. **Extracting MFCCs & Training**: Extract Mel-frequency cepstral coefficients (MFCCs) from these segments for feature representation, then train the model using these features compiled in a `.csv` file.
+
+3. **Evaluation**: Evaluate your trained model on new data by extracting MFCCs from unseen audio files and using the model to predict the letters.
+
+### Person Recognition
+
+For models designed to recognize individuals from their voice:
+
+- **MFCC Extraction Without Splitting**: Directly extract MFCCs from the `.wav` files without the need for splitting, as the model learns from the overall keystroke characteristics rather than isolated sounds.
+
+- **Training & Evaluation**: Similar to the letter-by-letter approach, train your model with these features and evaluate on new data.
+
+### How to Use
+
+#### To Identify a Letter
+
+1. **Extract MFCCs from a Specific `.wav` File**:
+    ```sh
+    python3 audio_processing/character_recognition/evaluation_audio_processing.py --audio_file path/to/audio_file.wav --output_csv outpu_csv.csv
+    ```
+
+2. **Run the Trained Model to Make Predictions**:
+    ```sh
+    python3 evaluation/trained_model.py --model ../models/model.joblib --scaler ../scalers/scaler.joblib --input_csv ../output_csv.csv --predictions_output ../models_results/results.txt
+    ```
+3. **Train the model if needed**:
+    ```sh
+    python3 training/train.py --input_csv path/to/input_csv --predictions_output path/to/predictions_output.txt --model_name model --scaler_name scaler
+    ```
+#### To Identify a Person
+
+1. **Extract MFCCs from a Specific `.wav` File**:
+    ```sh
+    python3 ../audio_processing/person_recognition/evaluation_mfcc_extractor.py --audio_file ../sentences_audios/haykel_sentences/1_haykel.wav --output_csv ../test2.csv
+    ```
+
+2. **Run the Trained Model to Make Predictions**:
+    ```sh
+    python3 ../evaluation/trained_model.py --model ../models/second_person_recognizer.joblib --scaler ../scalers/400_features_scaler.joblib --input_csv ../test2.csv --predictions_output ../models_results/person_results.txt
+    ```
+3. **Train the model if needed**:
+    ```sh
+    python3 training/train.py --input_csv path/to/input_csv --predictions_output path/to/predictions_output.txt --model_name model --scaler_name scaler
+    ```
+
+These commands provide a streamlined process for using the provided scripts for both letter identification and person recognition. Each step is designed to prepare the data, extract the necessary features, and apply the trained models for prediction. Make sure to adjust the paths according to your project's directory structure.
 
 ## Content 
 
