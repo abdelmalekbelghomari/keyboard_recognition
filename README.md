@@ -11,6 +11,34 @@ In the realm of digital security, knowing who is using a computer and what they 
 - **Person Identification**: Utilizing the subtle but unique sound profiles produced by individuals when typing, our system can determine who is using a keyboard with a high degree of accuracy.
 - **Keystroke Deciphering**: Our system goes beyond mere identification; it can transcribe the keys being pressed based on the audio input of the typing, which is crucial for forensic analysis and security.
 - **Neural Network Models**: We have implemented several machine learning models, optimized with diverse datasets,.
+## Technical Stack :computer:
+
+Our Audio Forensic Recognition System leverages a sophisticated stack of technologies and libraries, including:
+
+- **Python**: Our primary programming language, known for its readability and vast ecosystem.
+- **LibROSA**: A powerful library for music and audio analysis, used for extracting MFCCs from audio files.
+- **Scikit-learn**: Utilized for creating and training the MLPClassifier neural network models, and for data scaling.
+- **NLTK**: Used for Levenshtein distance corrections, enhancing our model's output accuracy for letter recognition.
+- **Joblib**: For efficient saving and loading of our trained models and scalers.
+
+## Data Preparation and Preprocessing :floppy_disk:
+
+Key to our system's accuracy is the meticulous preparation and preprocessing of audio data:
+
+- **Audio Splitting**: We dissect continuous typing audio into discrete keystroke sounds, isolating unique typing patterns.
+- **Feature Extraction**: Through MFCCs, we transform audio signals into a feature set that our neural networks can learn from.
+
+## Model Training and Evaluation :bar_chart:
+
+- **Training Process**: Our models are trained on a dataset of typing sounds, learning to associate specific patterns with individual letters or users.
+- **Evaluation Metrics**: We evaluate the performance of our models, ensuring high accuracy and reliability.
+
+## Future Directions :rocket:
+
+- **Dataset Expansion**: To enhance the system's robustness and accuracy, we plan to continually expand our training dataset with more varied typing patterns.
+- **Model Optimization**: Ongoing efforts to refine our neural network architecture and parameters for improved performance.
+- **Application Development**: We aim to encapsulate our technology into user-friendly applications for real-world forensic and security use cases.
+
 
 ## Getting Started :rocket:
 
@@ -77,17 +105,12 @@ For models designed to recognize individuals from their voice:
     ```sh
     python3 training/train.py --input_csv path/to/input_csv --predictions_output path/to/predictions_output.txt --model_name model --scaler_name scaler
     ```
+#### To use the demonstration
+
+First, run `demo.py`, then launch `demo.php`. Choose the mode you desire, either person recognition or letter recognition. Next, type into the input for 10 seconds, and voilà, you'll have your result—even if it's incorrect.
 
 These commands provide a streamlined process for using the provided scripts for both letter identification and person recognition. Each step is designed to prepare the data, extract the necessary features, and apply the trained models for prediction. Make sure to adjust the paths according to your project's directory structure.
 
-## Content 
-
-Our repository is composed of different folders :
-
-* audio_processing folder is for creating the mfccs from one or different audios based on the protocol.
-* training folder is for training a model
-* evaluation is for evaluating a trained model
-* 
 
 
 

@@ -12,6 +12,7 @@ def find_closest_word(input_word, dictionary):
     closest_word = min(dictionary, key=lambda word: levenshtein_distance(word, input_word))
     return closest_word
 
+
 def correct_output_with_dictionary(model_output, dictionary):
     """
     Corrige la sortie du modèle en utilisant la distance de Levenshtein pour chaque mot prédit.
@@ -67,6 +68,10 @@ X_scaled = scaler.transform(X)
 
 # Faire des prédictions avec le modèle
 predictions = model.predict(X_scaled)
+
+# Replace 'space' with ' ' in predictions
+predictions = [prediction.replace('space', ' ') for prediction in predictions]
+
 
 # Écrire les prédictions dans le fichier de sortie spécifié
 with open(args.predictions_output, 'w') as f:
