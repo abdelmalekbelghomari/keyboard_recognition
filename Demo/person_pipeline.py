@@ -4,14 +4,14 @@ import os
 def execute_commands_and_delete_csv():
     # Définition de la première commande pour extraire les MFCCs
     command1 = [
-        "python3", "../audio_processing/person_recognition/evaluation_mfcc_extractor.py",
-        "--audio_file", "../sentences_audios/haykel_sentences/1_haykel.wav",
+        "python", "../audio_processing/person_recognition/evaluation_mfcc_extractor.py",
+        "--audio_file", "./uploads/audio_converted.wav",
         "--output_csv", "../test2.csv",
     ]
     
     # Définition de la deuxième commande pour exécuter le modèle entraîné
     command2 = [
-        "python3", "../evaluation/trained_model.py",
+        "python", "../evaluation/trained_model.py",
         "--model", "../models/second_person_recognizer.joblib",
         "--scaler", "../scalers/400_features_scaler.joblib",
         "--input_csv", "../test2.csv",

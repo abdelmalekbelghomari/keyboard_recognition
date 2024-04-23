@@ -4,14 +4,14 @@ import os
 def execute_workflow():
     # Définition de la première commande pour extraire les MFCC et écrire dans test.csv
     command1 = [
-        "python3", "../audio_processing/character_recognition/evaluation_audio_processing.py",
-        "--audio_file", "../letters_audios/cedric/audio/b_cedric.wav",
+        "python", "../audio_processing/character_recognition/evaluation_audio_processing.py",
+        "--audio_file", "./uploads/audio_converted.wav",
         "--output_csv", "../test1.csv",
     ]
     
     # Définition de la deuxième commande pour exécuter le modèle entraîné et enregistrer les prédictions dans results.txt
     command2 = [
-        "python3", "../evaluation/trained_model.py",
+        "python", "../evaluation/trained_model.py",
         "--model", "../models/third_letter_recognizer.joblib",
         "--scaler", "../scalers/20_feature_scaler.joblib",
         "--input_csv", "../test1.csv",

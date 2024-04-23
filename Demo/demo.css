@@ -1,4 +1,11 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
 body {
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
@@ -82,4 +89,71 @@ h1 p {
     height : 40px;
     width: 40px;
     border-color: #3A83BF;
+}
+
+#predictionSection {
+    background-color : white;
+    margin:10px;
+    border-radius: 10px;
+}  
+
+
+#letterPredictionSection {
+    background-color : white;
+    margin:10px;
+    border-radius: 10px;
+}
+
+
+.loadingSection {
+    height: 100vh;
+}
+
+
+.scroll {
+    background-color: #428BCA;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.scroll:hover {
+    background-color: #3A83BF;
+}
+
+#utilisateur, #touche {
+    background-color: #428BCA;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#utilisateur:hover,
+#touche:hover {
+    background-color: #3A83BF;
+}
+
+.bouton-actif {
+    background-color: #336699 !important;
+}
+
+.hide {
+    display: none;
+}
+
+
+
+
+.different {
+    background-color: red;
+}
+
+.same {
+    background-color: green;
 }

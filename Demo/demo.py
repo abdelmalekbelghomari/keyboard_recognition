@@ -4,6 +4,8 @@ import os
 import subprocess  
 import librosa
 import librosa.display
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import soundfile as sf
@@ -37,6 +39,7 @@ def upload_audio():
     sf.write(path_to_converted, y, sr, format='wav')
 
     S = librosa.amplitude_to_db(np.abs(librosa.stft(y)), ref=np.max)
+    plt.ioff()
     plt.figure(figsize=(10, 4))
     librosa.display.specshow(S, sr=sr, x_axis='time', y_axis='mel')
     plt.colorbar(format='%+2.0f dB')
@@ -46,11 +49,30 @@ def upload_audio():
     plt.close()
 
     full_spectrogram_path = os.path.abspath(spectrogram_path)
-    return {'spectrogramPath': full_spectrogram_path}
+    return {'spectrogram   Path': full_spectrogram_path}
 
 @app.route('/<path:path>')
 def static_file(path):
     return send_from_directory('spectrogrammes', path)
+
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    command = [
+        "python", "person_pipeline.py"
+    ]
+    subprocess.run(command, check=True)
+    return {'sucess': 'coucou'}
+
+
+@app.route('/predict_letter', methods=['POST'])
+def predict_letter():
+    command = [
+        "python", "letter_pipeline.py"
+    ]
+    subprocess.run(command, check=True)
+    return {'sucess': 'coucou'}
+
 
 if __name__ == '__main__':
     app.run(debug=True)
